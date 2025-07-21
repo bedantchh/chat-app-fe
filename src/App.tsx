@@ -9,7 +9,6 @@ function App() {
     ws.onmessage = (event)=>{
       setMessages(messages => [...messages, event.data])
     }
-    console.log(event.data)
     wsRef.current= ws
 
     ws.onopen = () => {
@@ -27,7 +26,7 @@ function App() {
       <div className="p-2 text-white bg-transparent backdrop-blur-2xl rounded-t-2xl ">
         <h1 className="text-4xl">GlobeChat</h1>
       </div>
-      <div className="flex flex-col items-end flex-1  text-white">
+      <div className="flex flex-col items-end flex-1 gap-4 text-white">
         {messages.map( (m) =>
           <p  className="bg-slate-500 px-4 py-3 rounded-xl text-base md:text-lg">{m}</p>
         )}
